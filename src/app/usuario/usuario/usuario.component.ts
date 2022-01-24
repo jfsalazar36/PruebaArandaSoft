@@ -50,22 +50,7 @@ export class UsuarioComponent implements OnInit {
     this.rolesService.consultarRoles().subscribe((resultado: Array<RolesDto>) => {
       this.roles = resultado;
     });
-  }
-
-  // crearFormulario() {
-  //   return new FormGroup({
-  //     primerNombre: new FormControl('', Validators.required),
-  //     segundoNombre: new FormControl(''),
-  //     primerApellido: new FormControl('', Validators.required),
-  //     segundoApellido: new FormControl(''),
-  //     nombreCompleto: new FormControl(''),
-  //     direccion: new FormControl('', Validators.required),
-  //     telefono: new FormControl('', Validators.required),
-  //     email: new FormControl('', Validators.required),
-  //     edad: new FormControl('', Validators.required),
-  //     rolId: new FormControl('', Validators.required),
-  //   });
-  // }
+  }  
 
   crearFormularioBusqueda() {
     return new FormGroup({
