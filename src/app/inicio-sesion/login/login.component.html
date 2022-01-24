@@ -1,0 +1,42 @@
+<div class="limiter">
+    <div class="container-login100 login-background">
+      <div class="wrap-login100">
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" class="login100-form" autocomplete="off">
+          <span class="login100-form-title p-b-45">
+            Login
+          </span>
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input class="input100" type="text" name="nombre" formControlName="nombre" autocomplete="off">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Usuario</span>
+            <div [hidden]="loginForm.controls.nombre.status !== 'INVALID'">
+              <small>{{ 'CampoRequerido' | translate }}</small>
+            </div>
+          </div>
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input class="input100" type="password" name="pass" formControlName="password" autocomplete="off">
+            <span class="focus-input100"></span>
+            <span class="label-input100">Password</span>
+            <div [hidden]="loginForm.controls.password.status !== 'INVALID'">
+              <small>{{ 'CampoRequerido' | translate }}</small>
+            </div>
+          </div>
+          <div [hidden]="!mostrarMensaje">
+            <small>{{ error }}</small>
+          </div>
+          <div class="container-login100-form-btn">
+            <button class="login100-form-btn">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="login100-more">
+          <div class="row login-text">
+            <div class="col-md-12 col-xs-4">
+              <!-- <img src="assets/images/pages/fuse.svg"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

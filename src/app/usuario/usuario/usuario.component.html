@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div _ngcontent-vnk-c2 class="card">
+            <div class="header row">
+                <form [formGroup]="busquedaForm" (ngSubmit)="consultarUsuario(1)">
+                    <div class="form-goup">
+                        <label>Nombre</label>
+                        <input type="text" formControlName="nombre">
+                    </div>
+                    <div class="form-goup">
+                        <label>Rol</label>
+                        <select name="rolId" id="rolId-select" class="form-control" formControlName="rolId">                            
+                            <option *ngFor="let rol of roles" [value]="rol.rolId">
+                                {{rol.nombre}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 col-sm-12 col-xs-12">
+                        <button class="btn btn-info waves-effect" type="submit">Buscar</button>
+                    </div>
+                </form>
+                <div class="col-md-2 col-sm-12 col-xs-12">
+                    <button class="btn btn-primary waves-effect" (click)="crearUsuario()">Nuevo usuario</button>
+                </div>
+            </div>
+            <div class="body" *ngIf="usuarios">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th id="nombre">Primer nombre</th>
+                                <th id="descripcion">Segundo nombre</th>
+                                <th id="tipoclasificacion">Primer apellido</th>
+                                <th id="unidadMedida">Segundo apellido</th>
+                                <th id="editar"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let itemUsuario of usuarios">
+                                <td>{{itemUsuario.primerNombre}}</td>
+                                <td>{{itemUsuario.segundoNombre}}</td>
+                                <td>{{itemUsuario.primerApellido}}</td>
+                                <td>
+                                    <a (click)="editarUsuarios(itemUsuario)"
+                                        class="btn btn-info btn-circle waves-effect waves-circle waves-float">
+                                        <i class="material-icons">Editar</i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="usuarios" class="centred-pagination-links">
+                <ngb-pagination [collectionSize]="pagination.cuentaTotal" [(page)]="pagination.paginaActual"
+                    [pageSize]="pagination.totalPaginas" [rotate]="true" [maxSize]="4"
+                    (pageChange)="consultarUsuario($event);">
+                </ngb-pagination>
+            </div>
+        </div>
+    </div>
+</div>

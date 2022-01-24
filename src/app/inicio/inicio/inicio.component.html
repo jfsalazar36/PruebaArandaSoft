@@ -1,0 +1,10 @@
+<app-informacion-usuario></app-informacion-usuario>
+<div>
+    <app-sidebar [title]="'Usuarios'" [id]="'123'"></app-sidebar>
+</div>
+<div [hidden]="!mostrarMensaje">
+    <small>{{ 'MensajeBienvenida' | translate }}</small>
+</div>
+<div [hidden]="!mostrarNoticias">
+    <small>{{ 'Noticias' | translate }}</small>
+  </div>
